@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:stdsys.Models"
+             x:Class="stdsys.Page.SearchCoursesPage"
+             BackgroundColor="{StaticResource PrimaryMedium}">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="20" RowSpacing="15">
+        <!-- Page Title -->
+        <Label Grid.Row="0" 
+               Text="Search Courses"
+               FontSize="28" 
+               FontAttributes="Bold"
+               TextColor="{StaticResource LightAccent}" 
+               HorizontalOptions="Center"/>
+
+        <!-- Search Bar -->
+        <Border Grid.Row="1" 
+                Stroke="{StaticResource LightAccent}" 
+                StrokeThickness="2" 
+                BackgroundColor="White" 
+                StrokeShape="RoundRectangle 10"
+                Padding="10">
+            <SearchBar x:Name="courseSearchBar"
+                       Placeholder="Search for a course..."
+                       BackgroundColor="Transparent"
+                       TextColor="{StaticResource PrimaryDark}"
+                       PlaceholderColor="{StaticResource PrimaryMedium}"
+                       TextChanged="OnSearchTextChanged"/>
+        </Border>
+
+        <!-- Courses Collection -->
+        <CollectionView x:Name="coursesCollectionView" 
+                        Grid.Row="2"
+                        ItemsSource="{Binding SearchResults}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Course">
+                    <Border Stroke="{StaticResource PrimaryMedium}" 
+                            StrokeThickness="1" 
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="15" 
+                            Margin="5">
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="{Binding CourseCode}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryDark}" />
+                                <Label Text="{Binding CourseName}"
+                                       FontSize="16"
+                                       TextColor="{StaticResource PrimaryDark}" />
+                                <Label Text="{Binding Credits, StringFormat='Credits: {0}'}"
+                                       FontSize="14"
+                                       TextColor="{StaticResource Accent}" />
+                            </VerticalStackLayout>
+                            
+                            <Button Grid.Column="1"
+                                    Text="Add"
+                                    BackgroundColor="{StaticResource Accent}"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    Padding="15,10"
+                                    VerticalOptions="Center"
+                                    Clicked="OnAddClicked"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center" 
+                                     VerticalOptions="Center" 
+                                     Spacing="10">
+                    <Label Text="No courses found"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource LightAccent}"
+                           FontSize="16"/>
+                    <Label Text="Try a different search term"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource LightAccent}"
+                           FontSize="14"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <!-- Added Courses List -->
+        <Border Grid.Row="3"
+                Stroke="{StaticResource LightAccent}" 
+                StrokeThickness="2" 
+                BackgroundColor="White" 
+                StrokeShape="RoundRectangle 10"
+                Padding="10">
+            <VerticalStackLayout>
+                <Label Text="Added Courses"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource PrimaryDark}"/>
+                
+                <CollectionView ItemsSource="{Binding AddedCourses}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Course">
+                            <Label Text="{Binding CourseCode}"
+                                   FontSize="16"
+                                   Padding="5"
+                                   HorizontalOptions="Center"
+                                   TextColor="{StaticResource PrimaryDark}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    
+                    <CollectionView.EmptyView>
+                        <Label Text="No courses added yet"
+                               HorizontalOptions="Center"
+                               TextColor="Gray"
+                               FontSize="14"/>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

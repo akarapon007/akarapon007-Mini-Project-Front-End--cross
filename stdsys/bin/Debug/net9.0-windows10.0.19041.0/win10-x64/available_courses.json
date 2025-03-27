@@ -1,0 +1,16 @@
+[
+  { "courseCode": "CS301", "courseName": "Database Systems", "credits": 3 },
+  { "courseCode": "CS302", "courseName": "Operating Systems", "credits": 3 },
+  { "courseCode": "MATH301", "courseName": "Differential Equations", "credits": 3 },
+  { "courseCode": "CS401", "courseName": "Software Engineering", "credits": 3 },
+  { "courseCode": "CS303", "courseName": "Data Structures and Algorithms", "credits": 3 },
+  { "courseCode": "CS304", "courseName": "Computer Networks", "credits": 3 },
+  { "courseCode": "CS305", "courseName": "Artificial Intelligence", "credits": 3 },
+  { "courseCode": "MATH302", "courseName": "Linear Algebra", "credits": 3 },
+  { "courseCode": "CS402", "courseName": "Machine Learning", "credits": 3 },
+  { "courseCode": "CS403", "courseName": "Web Development", "credits": 3 },
+  { "courseCode": "CS404", "courseName": "Cybersecurity Fundamentals", "credits": 3 },
+  { "courseCode": "MATH303", "courseName": "Probability and Statistics", "credits": 3 },
+  { "courseCode": "CS405", "courseName": "Cloud Computing", "credits": 3 },
+  { "courseCode": "CS406", "courseName": "Mobile Application Development", "credits": 3 }
+  ]

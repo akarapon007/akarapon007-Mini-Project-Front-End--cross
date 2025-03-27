@@ -1,0 +1,53 @@
+{
+  "profilePictureUrl": "https://assets.goal.com/images/v3/bltd58c4d60ecd9275e/GOAL_-_Blank_WEB_-_Facebook_-_2023-06-13T135350.847.png?auto=webp&format=pjpg&width=1920&quality=60",
+  "firstName": "John",
+  "lastName": "Doe",
+  "studentId": "65011212080",
+  "email": "john.doe@university.edu",
+  "year": 2,
+  "curriculum": {
+    "totalCredits": 120,
+    "passedCredits": 60,
+    "remainingCredits": 60
+  },
+  "gpa": 3.75,
+  "currentSemester": {
+    "semesterName": "Semester 2/2024",
+    "courses": [
+      { "courseCode": "CS301", "courseName": "Database Systems", "credits": 3 },
+      { "courseCode": "CS302", "courseName": "Operating Systems", "credits": 3 },
+      { "courseCode": "MATH301", "courseName": "Differential Equations", "credits": 3 },
+      { "courseCode": "CS303", "courseName": "Data Structures and Algorithms", "credits": 3 },
+      { "courseCode": "CS304", "courseName": "Computer Networks", "credits": 3 }
+    ]
+  },
+  "semesters": [
+    {
+      "semesterName": "Semester 1/2023",
+      "courses": [
+        { "courseCode": "GEN101", "courseName": "General Education 1", "credits": 3, "grade": "A" },
+        { "courseCode": "CS201", "courseName": "Programming Fundamentals", "credits": 3, "grade": "B+" },
+        { "courseCode": "MATH101", "courseName": "Calculus I", "credits": 3, "grade": "A" },
+        { "courseCode": "ENG101", "courseName": "English for Academic Purposes", "credits": 3, "grade": "A-" }
+      ]
+    },
+    {
+      "semesterName": "Semester 2/2023",
+      "courses": [
+        { "courseCode": "MATH201", "courseName": "Calculus II", "credits": 3, "grade": "A-" },
+        { "courseCode": "CS202", "courseName": "Data Structures", "credits": 3, "grade": "B" },
+        { "courseCode": "GEN102", "courseName": "General Education 2", "credits": 3, "grade": "A" },
+        { "courseCode": "CS203", "courseName": "Object-Oriented Programming", "credits": 3, "grade": "B+" }
+      ]
+    },
+    {
+      "semesterName": "Semester 3/2023",
+      "courses": [
+        { "courseCode": "MATH202", "courseName": "Linear Algebra", "credits": 3, "grade": "A" },
+        { "courseCode": "CS204", "courseName": "Discrete Mathematics", "credits": 3, "grade": "B+" },
+        { "courseCode": "CS205", "courseName": "Introduction to Software Engineering", "credits": 3, "grade": "A-" },
+        { "courseCode": "PHYS101", "courseName": "Physics for Engineers", "credits": 3, "grade": "B" }
+      ]
+    }
+  ]
+}

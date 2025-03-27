@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="stdsys.Page.ProfilePage"
+             BackgroundColor="{StaticResource PrimaryMedium}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!-- กรอบโปรไฟล์ -->
+            <Border Stroke="{StaticResource PrimaryDark}" 
+                    StrokeThickness="2" 
+                    Padding="15" 
+                    BackgroundColor="White" 
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Image Source="{Binding ProfilePictureUrl}" 
+                           HeightRequest="120" 
+                           WidthRequest="120" 
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding FullName}" 
+                           FontSize="24" 
+                           TextColor="{StaticResource PrimaryDark}" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding StudentId}" 
+                           TextColor="Gray" 
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- กรอบข้อมูลนักศึกษา -->
+            <Border Stroke="{StaticResource PrimaryDark}" 
+                    StrokeThickness="2" 
+                    Padding="15" 
+                    BackgroundColor="White" 
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="{Binding Year, StringFormat='Year: {0}'}" 
+                           TextColor="{StaticResource PrimaryDark}" 
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Gpa, StringFormat='GPA: {0:F2}'}" 
+                           TextColor="{StaticResource PrimaryDark}" 
+                           FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- กรอบหน่วยกิต -->
+            <Border Stroke="{StaticResource PrimaryDark}" 
+                    StrokeThickness="2" 
+                    Padding="15" 
+                    BackgroundColor="White" 
+                    StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="{Binding Curriculum.TotalCredits, StringFormat='Total Credits: {0}'}" 
+                           TextColor="{StaticResource PrimaryDark}" 
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Curriculum.PassedCredits, StringFormat='Passed Credits: {0}'}" 
+                           TextColor="Green"/>
+                    <Label Text="{Binding Curriculum.RemainingCredits, StringFormat='Remaining Credits: {0}'}" 
+                           TextColor="Red"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- กรอบเมนูปุ่ม -->
+            <Border Stroke="{StaticResource PrimaryDark}" 
+                    StrokeThickness="2" 
+                    Padding="15" 
+                    BackgroundColor="White" 
+                    StrokeShape="RoundRectangle 10">
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+                    <Button Grid.Row="0" Grid.Column="0" 
+                            Text="Current Semester" 
+                            Clicked="OnCurrentSemesterClicked" 
+                            BackgroundColor="{StaticResource Accent}" 
+                            TextColor="White" 
+                            CornerRadius="10" />
+                    <Button Grid.Row="0" Grid.Column="1" 
+                            Text="Past Semesters" 
+                            Clicked="OnPastSemestersClicked" 
+                            BackgroundColor="{StaticResource Accent}" 
+                            TextColor="White" 
+                            CornerRadius="10" />
+                    <Button Grid.Row="1" Grid.Column="0" 
+                            Text="Search Courses" 
+                            Clicked="OnSearchCoursesClicked" 
+                            BackgroundColor="{StaticResource Accent}" 
+                            TextColor="White" 
+                            CornerRadius="10" />
+                    <Button Grid.Row="1" Grid.Column="1" 
+                            Text="Withdraw Courses" 
+                            Clicked="OnWithdrawCoursesClicked" 
+                            BackgroundColor="{StaticResource Accent}" 
+                            TextColor="White" 
+                            CornerRadius="10" />
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="stdsys.Page.PastSemestersPage"
+             BackgroundColor="{StaticResource PrimaryMedium}">
+
+    <Grid RowDefinitions="Auto,Auto,*" Padding="20" RowSpacing="15">
+        <!-- Page Title -->
+        <Label Grid.Row="0" 
+               Text="Past Semesters" 
+               FontSize="28" 
+               FontAttributes="Bold"
+               TextColor="{StaticResource LightAccent}" 
+               HorizontalOptions="Center"/>
+        
+        <!-- Semester Picker -->
+        <Border Grid.Row="1" 
+                Stroke="{StaticResource LightAccent}" 
+                StrokeThickness="2" 
+                BackgroundColor="White" 
+                StrokeShape="RoundRectangle 10"
+                Padding="10">
+            <Picker x:Name="semesterPicker"
+                    Title="Select Semester"
+                    TitleColor="{StaticResource PrimaryDark}"
+                    ItemsSource="{Binding PastSemesters}"
+                    ItemDisplayBinding="{Binding SemesterName}"
+                    SelectedIndexChanged="OnSemesterSelected"
+                    TextColor="{StaticResource PrimaryDark}"
+                    FontSize="16"/>
+        </Border>
+        
+        <!-- Courses Collection -->
+        <CollectionView x:Name="coursesCollectionView" 
+                        Grid.Row="2"
+                        ItemsSource="{Binding SelectedSemesterCourses}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="{StaticResource PrimaryMedium}" 
+                            StrokeThickness="1" 
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="15" 
+                            Margin="5">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Text="{Binding CourseCode}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryDark}" />
+                            
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   Text="{Binding CourseName}"
+                                   FontSize="16"
+                                   TextColor="{StaticResource PrimaryDark}" />
+                            
+                            <Label Grid.Row="2" Grid.Column="0"
+                                   Text="{Binding Credits, StringFormat='Credits: {0}'}"
+                                   FontSize="14"
+                                   TextColor="{StaticResource Accent}" />
+                            
+                            <Label Grid.Row="3" Grid.Column="0"
+                                   Text="{Binding Grade, StringFormat='Grade: {0}'}"
+                                   FontSize="14"
+                                   TextColor="{StaticResource Accent}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+            <!-- Empty View for When No Courses are Selected -->
+            <CollectionView.EmptyView>
+                <Label Text="Select a semester to view courses"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource LightAccent}"
+                       FontSize="16"/>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+</ContentPage>
